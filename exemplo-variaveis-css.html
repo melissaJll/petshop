@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      :root {
+        /* --Nome da variavel: valor da variavel */
+        --cor: rgb(163, 68, 68);
+        --segunda-cor: rgb(212, 106, 159);
+        --font: Verdana;
+      }
+
+      h1 {
+        color: var(--cor);
+      }
+      h2 {
+        font-family: var(--font);
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="border: var(--segunda-cor) solid 2px">
+      Usando variaveis no CSS
+    </h1>
+    <hr />
+    <h2>Front-end</h2>
+    <p>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque unde
+      sed ut!
+    </p>
+    <h2>Back-end</h2>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, quo?
+    </p>
+  </body>
+</html>
