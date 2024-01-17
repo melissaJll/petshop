@@ -6,6 +6,7 @@ export default function Produtos() {
       <Head>
         <title>Produtos - Petshop</title>
         <meta name="description" content="produto do petshop" />
+        <meta name="keywords" content="coleira, ração, brinquedo de cachorro" />
       </Head>
       <section>
         <h2>Conheça nosso produtos</h2>
