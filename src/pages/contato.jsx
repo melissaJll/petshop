@@ -1,8 +1,8 @@
-export default function Home() {
+export default function Contato() {
   return (
     <>
       <section>
-        <h2>Pet noticias</h2>
+        <h2>Fale conosco</h2>
       </section>
     </>
   );
