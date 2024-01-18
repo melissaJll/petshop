@@ -1,11 +1,12 @@
 import Link from "next/link";
 import Menu from "./Menu";
 import Image from "next/image";
+import styled from "styled-components";
 
 export default function Cabecalho() {
   return (
     <>
-      <header>
+      <StyledHeader>
         <h1>
           <Image
             src="/images/logo.png"
@@ -16,7 +17,11 @@ export default function Cabecalho() {
           <Link href="/">Petshop</Link>
         </h1>
         <Menu></Menu>
-      </header>
+      </StyledHeader>
     </>
   );
 }
+
+const StyledHeader = styled.header`
+  background-color: green;
+`;
