@@ -1,14 +1,44 @@
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import styled from "styled-components";
 
 export default function Menu() {
+  const pathname = usePathname();
+  // captura o nome do caminho da página atual
   return (
     <>
       <StyledNav>
-        <Link href="/">Blog</Link>
-        <Link href="/produtos">Produtos</Link>
-        <Link href="/sobre">Sobre</Link>
-        <Link href="/contato">Contato</Link>
+        <Link
+          href="/"
+          className={pathname === "/" ? "selecionado" : "nao-selecionado"}
+        >
+          Blog
+        </Link>
+
+        <Link
+          href="/produtos"
+          className={
+            pathname === "/produtos" ? "selecionado" : "nao-selecionado"
+          }
+        >
+          Produtos
+        </Link>
+
+        <Link
+          href="/sobre"
+          className={pathname === "/sobre" ? "selecionado" : "nao-selecionado"}
+        >
+          Sobre
+        </Link>
+
+        <Link
+          href="/contato"
+          className={
+            pathname === "/contato" ? "selecionado" : "nao-selecionado"
+          }
+        >
+          Contato
+        </Link>
       </StyledNav>
     </>
   );
@@ -43,5 +73,11 @@ const StyledNav = styled.nav`
       padding-left: 2rem;
       padding-right: 2rem;
     }
+  }
+  .selecionado {
+    background-color: #663a83;
+  }
+  .nao-selecionado {
+    background-color: var(--cor-primaria-fundo);
   }
 `;
