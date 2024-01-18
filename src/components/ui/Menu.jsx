@@ -18,12 +18,12 @@ const StyledNav = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: var(--borda-arredondada);
+  /* border-radius: var(--borda-arredondada); */
 
   a {
     text-decoration: none;
     color: var(--cor-primaria);
     background-color: var(--cor-primaria-fundo);
-    padding: 0%.8rem 1rem;
+    padding: 0.8rem 1rem;
   }
 `;
