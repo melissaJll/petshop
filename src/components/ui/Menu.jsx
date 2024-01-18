@@ -66,8 +66,4 @@ const StyledNav = styled.nav`
   a.ativo {
     background-color: #663a83;
   }
-
-  /* .nao-ativo {
-    background-color: var(--cor-primaria-fundo);
-  } */
 `;
