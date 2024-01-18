@@ -1,4 +1,5 @@
 import Head from "next/head";
+import styled from "styled-components";
 
 export default function Home() {
   return (
@@ -11,9 +12,14 @@ export default function Home() {
           content="Petshop, Banho, Ração, Gato, Chachorro"
         />
       </Head>
-      <section>
+      <StyledHome>
         <h2>Pet noticias</h2>
-      </section>
+      </StyledHome>
     </>
   );
 }
+const StyledHome = styled.section`
+  h2::before {
+    content: "📰";
+  }
+`;
