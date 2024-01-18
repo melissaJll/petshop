@@ -20,6 +20,6 @@ export default function Home() {
 }
 const StyledHome = styled.section`
   h2::before {
-    content: "📰";
+    content: "📰 ";
   }
 `;
