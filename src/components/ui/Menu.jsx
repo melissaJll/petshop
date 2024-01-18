@@ -4,7 +4,8 @@ import styled from "styled-components";
 
 export default function Menu() {
   const pathname = usePathname();
-  // captura o nome do caminho da página atual
+  // captura o valor retornado do hoook usePathName na variavel pare ser comparado
+  // usePathname é um gancho do componente cliente que permite ler o caminho do URL atual
   return (
     <>
       <StyledNav>
