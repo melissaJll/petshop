@@ -62,7 +62,8 @@ const StyledNav = styled.nav`
       padding-right: 2rem;
     }
   }
-  .ativo {
+
+  a.ativo {
     background-color: #663a83;
   }
 
