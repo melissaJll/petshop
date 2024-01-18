@@ -8,7 +8,7 @@ export default function Menu() {
   const pathname = usePathname();
 
   //função que faz a comparação dado o parametro "/..." e realiza a condicional
-  const verificaActive = (path) => (pathname === path ? "selecionado" : "");
+  const verificaActive = (path) => (pathname === path ? "ativo" : "");
   return (
     <>
       <StyledNav>
@@ -62,11 +62,11 @@ const StyledNav = styled.nav`
       padding-right: 2rem;
     }
   }
-  .selecionado {
+  .ativo {
     background-color: #663a83;
   }
 
-  /* .nao-selecionado {
+  /* .nao-ativo {
     background-color: var(--cor-primaria-fundo);
   } */
 `;
