@@ -8,13 +8,15 @@ export default function Cabecalho() {
     <>
       <StyledHeader>
         <h1>
-          <Image
-            src="/images/logo.png"
-            width={48}
-            height={48}
-            alt="patinha dentro de um coração"
-          />
-          <Link href="/">Petshop</Link>
+          <Link href="/">
+            <Image
+              src="/images/logo.png"
+              width={48}
+              height={48}
+              alt="patinha dentro de um coração"
+            />
+            Petshop
+          </Link>
         </h1>
         <Menu></Menu>
       </StyledHeader>
@@ -23,5 +25,18 @@ export default function Cabecalho() {
 }
 
 const StyledHeader = styled.header`
-  background-color: green;
+  background-color: #faf9fc;
+  box-shadow: var(--sombra-box);
+  h1 a {
+    text-decoration: none;
+    color: var(--cor-primaria);
+    background-color: var(--cor-primaria-fundo);
+    /* #5b2081 */
+    border-radius: var(--borda-arredondada);
+    padding: 0.5rem 1.2rem;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `;
