@@ -3,41 +3,28 @@ import { usePathname } from "next/navigation";
 import styled from "styled-components";
 
 export default function Menu() {
-  const pathname = usePathname();
   // captura o valor retornado do hoook usePathName na variavel pare ser comparado
   // usePathname é um gancho do componente cliente que permite ler o caminho do URL atual
+  const pathname = usePathname();
+
+  //função que faz a comparação dado o parametro "/..." e realiza a condicional
+  const verificaActive = (path) => (pathname === path ? "selecionado" : "");
   return (
     <>
       <StyledNav>
-        <Link
-          href="/"
-          className={pathname === "/" ? "selecionado" : "nao-selecionado"}
-        >
+        <Link href="/" className={verificaActive("/")}>
           Blog
         </Link>
 
-        <Link
-          href="/produtos"
-          className={
-            pathname === "/produtos" ? "selecionado" : "nao-selecionado"
-          }
-        >
+        <Link href="/produtos" className={verificaActive("/produtos")}>
           Produtos
         </Link>
 
-        <Link
-          href="/sobre"
-          className={pathname === "/sobre" ? "selecionado" : "nao-selecionado"}
-        >
+        <Link href="/sobre" className={verificaActive("/sobre")}>
           Sobre
         </Link>
 
-        <Link
-          href="/contato"
-          className={
-            pathname === "/contato" ? "selecionado" : "nao-selecionado"
-          }
-        >
+        <Link href="/contato" className={verificaActive("/contato")}>
           Contato
         </Link>
       </StyledNav>
@@ -78,7 +65,8 @@ const StyledNav = styled.nav`
   .selecionado {
     background-color: #663a83;
   }
-  .nao-selecionado {
+
+  /* .nao-selecionado {
     background-color: var(--cor-primaria-fundo);
-  }
+  } */
 `;
