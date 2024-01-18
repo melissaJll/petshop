@@ -26,16 +26,23 @@ const StyledNav = styled.nav`
     background-color: var(--cor-primaria-fundo);
     padding: 0.8rem 1rem;
 
-    /* Versão 1 */
     &:first-child {
       border-bottom-left-radius: var(--borda-arredondada);
       border-top-left-radius: var(--borda-arredondada);
     }
-  }
+    &:last-child {
+      border-top-right-radius: var(--borda-arredondada);
+      border-bottom-right-radius: var(--borda-arredondada);
 
-  /* Versão 2 */
-  a:last-child {
-    border-top-right-radius: var(--borda-arredondada);
-    border-bottom-right-radius: var(--borda-arredondada);
+      &:hover,
+      &:focus {
+        background-color: var(--cor-primaria-fundo-hover);
+      }
+
+      @media screen and (min-width: 700px) {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+    }
   }
 `;
