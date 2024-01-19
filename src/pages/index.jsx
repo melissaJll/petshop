@@ -18,7 +18,7 @@ export default function Home() {
       </Head>
       <StyledHome>
         <h2>Pet noticias</h2>
-        <ListaPost></ListaPost>
+        <ListaPost posts={arrayPosts} />
 
         {/* <StyledListaPosts>
           {arrayPosts.map((post) => (
