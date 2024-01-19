@@ -2,10 +2,10 @@ import styled from "styled-components";
 import arrayPosts from "@/pages/api/array-posts";
 import Link from "next/link";
 
-export default function ListaPost({ parametro }) {
+export default function ListaPost({ posts }) {
   return (
     <StyledListaPosts>
-      {parametro.map((post) => (
+      {posts.map((post) => (
         <article key={post.id}>
           <Link href="">
             <h3>{post.titulo}</h3>
