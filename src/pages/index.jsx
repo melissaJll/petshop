@@ -1,8 +1,10 @@
 import Head from "next/head";
 import styled from "styled-components";
 import Link from "next/link";
+import arrayPosts from "./api/array-posts";
 
 export default function Home() {
+  // {arrayPosts.map((post) => ())
   return (
     <>
       <Head>
@@ -17,33 +19,14 @@ export default function Home() {
         <h2>Pet noticias</h2>
 
         <StyledListaPosts>
-          <article>
-            <Link href="">
-              <h3>Titulo...</h3>
-              <p>Subtitulo</p>
-            </Link>
-          </article>
-
-          <article>
-            <Link href="">
-              <h3>Titulo...</h3>
-              <p>Subtitulo</p>
-            </Link>
-          </article>
-
-          <article>
-            <Link href="">
-              <h3>Titulo...</h3>
-              <p>Subtitulo</p>
-            </Link>
-          </article>
-
-          <article>
-            <Link href="">
-              <h3>Titulo...</h3>
-              <p>Subtitulo</p>
-            </Link>
-          </article>
+          {arrayPosts.map((post) => (
+            <article key={post.id}>
+              <Link href="">
+                <h3>{post.titulo}</h3>
+                <p>{post.subtitulo}</p>
+              </Link>
+            </article>
+          ))}
         </StyledListaPosts>
       </StyledHome>
     </>
