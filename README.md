@@ -2,6 +2,10 @@
 
 ## Branch 11
 
+json-server --host 10.20.46.28 db.json --port 2112
+
+json-server --watch db.json
+
 npm install -g
 
 json-server --version
