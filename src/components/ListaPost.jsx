@@ -1,17 +1,25 @@
 import styled from "styled-components";
 import Link from "next/link";
 
-export default function ListaPost({ parametro }) {
+export default function ListaPosts({ posts }) {
+  if (posts.length === 0)
+    return (
+      <h3 style={{ textAlign: "center", color: "purple" }}>
+        Ainda não há posts!
+      </h3>
+    );
   return (
     <StyledListaPosts>
-      {parametro.map((post) => (
-        <article key={post.id}>
-          <Link href="">
-            <h3>{post.titulo}</h3>
-            <p>{post.subtitulo}</p>
-          </Link>
-        </article>
-      ))}
+      {posts.map((post) => {
+        return (
+          <article key={post.id}>
+            <Link href="">
+              <h3>{post.titulo}</h3>
+              <p>{post.subtitulo} </p>
+            </Link>
+          </article>
+        );
+      })}
     </StyledListaPosts>
   );
 }
