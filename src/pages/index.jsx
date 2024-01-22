@@ -12,6 +12,12 @@ export default function Home() {
     const carregarDados = async () => {
       try {
         const resposta = await fetch("http://localhost:2112/posts");
+        if (!resposta.ok) {
+          throw new Error(
+            `Erro requisição: ${resposta.status} - ${resposta.statusText}`
+          );
+        }
+
         const dados = await resposta.json();
         setListaDePosts(dados);
       } catch (error) {
@@ -32,9 +38,9 @@ export default function Home() {
           content="Petshop, Banho, Ração, Gato, Chachorro"
         />
       </Head>
+      {/* Definindo prop  = como o resultado do state setListaDePosts(dados) = listaDePosts */}
       <StyledHome>
         <h2>Pet noticias</h2>
-        {/* Definindo prop  = como o resultado do state setListaDePosts(dados) = listaDePosts */}
         <ListaPost posts={listaDePosts} />
       </StyledHome>
     </>
