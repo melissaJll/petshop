@@ -1,5 +1,11 @@
 # PetShop: projeto Next.js
 
+## Branch 11
+
+npm install -g
+
+json-server --version
+
 ## Branch 05
 
 ### Importante!!!
