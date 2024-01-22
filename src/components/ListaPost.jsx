@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import arrayPosts from "@/pages/api/array-posts";
 import Link from "next/link";
 
 export default function ListaPost({ parametro }) {

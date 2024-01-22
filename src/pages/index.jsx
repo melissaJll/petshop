@@ -16,7 +16,15 @@ export default function Home() {
       </Head>
       <StyledHome>
         <h2>Pet noticias</h2>
-        <ListaPost parametro={arrayPosts} />
+        <ListaPost
+          parametro={[
+            {
+              id: 1,
+              titulo: "Banho no catiorrinho",
+              subtitulo: "Use as utensilios certos para banhar seu cão",
+            },
+          ]}
+        />
 
         {/* <StyledListaPosts>
           {arrayPosts.map((post) => (
