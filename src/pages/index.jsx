@@ -5,6 +5,8 @@ import { useState } from "react";
 import Link from "next/link";
 
 // Executada no Servidor/Backend
+// Função getStaticProps - Utilizada para execução do código server-side (neste caso,
+//fetch na API) com o objetivode gerar props com os dados processados
 export async function getStaticProps() {
   try {
     const resposta = await fetch(`http://10.20.46.28:2112/posts`);
@@ -15,6 +17,7 @@ export async function getStaticProps() {
     }
 
     // objeto dentro de objeto - props recebe dados
+    //Após o processamento (desde de que nao haja erros ), a getStaticProps retorna um objeto com uma propriedade chamada "props"
     return {
       props: {
         posts: dados,
