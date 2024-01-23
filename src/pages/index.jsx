@@ -1,32 +1,32 @@
 import Head from "next/head";
 import styled from "styled-components";
 import ListaPost from "@/components/ListaPost";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 
-export default function Home() {
-  const [listaDePosts, setListaDePosts] = useState([]);
-  //   [] - Array de todos os produtos
+// Executada no Servidor/Backend
+export async function getStaticProps() {
+  try {
+    const resposta = await fetch(`http://10.20.46.28:2112/posts`);
+    const dados = await resposta.json();
 
-  useEffect(() => {
-    const carregarDados = async () => {
-      try {
-        const resposta = await fetch("http://localhost:2112/posts");
-        if (!resposta.ok) {
-          throw new Error(
-            `Erro requisição: ${resposta.status} - ${resposta.statusText}`
-          );
-        }
+    if (!resposta.ok) {
+      throw new Error(`Erro: ${resposta.status} - ${resposta.statusText}`);
+    }
 
-        const dados = await resposta.json();
-        setListaDePosts(dados);
-      } catch (error) {
-        console.error("Houve um erro: " + error);
-      }
+    // objeto dentro de objeto - props recebe dados
+    return {
+      props: {
+        posts: dados,
+      },
     };
+  } catch (error) {
+    console.error("Deu ruim: " + error.message);
+  }
+}
 
-    carregarDados();
-  }, []);
+export default function Home({ posts }) {
+  const [listaDePosts, setListaDePosts] = useState(posts);
 
   return (
     <>
