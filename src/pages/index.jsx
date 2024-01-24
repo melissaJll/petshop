@@ -36,15 +36,12 @@ export async function getStaticProps() {
   }
 }
 
-// categorias é props do return e categorias tmb
 export default function Home({ posts, categorias }) {
   const [listaDePosts, setListaDePosts] = useState(posts);
 
   const filtrar = (event) => {
-    // captura o texto do html sem css
     const categoriaEscolhida = event.currentTarget.textContent;
 
-    // props home{posts}
     const postsFiltrados = posts.filter((post) => {
       return post.categoria === categoriaEscolhida || post.categoria === null;
     });
@@ -68,7 +65,6 @@ export default function Home({ posts, categorias }) {
         <h2>Pet noticias</h2>
 
         <StyledCategorias>
-          {/* Indice é um dos parametros do map */}
           {categorias.map((categoria, indice) => {
             return (
               <button onClick={filtrar} key={indice}>
