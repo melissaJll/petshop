@@ -47,8 +47,16 @@ export default function Home({ posts, categorias }) {
       return post.categoria === categoriaEscolhida || post.categoria === null;
     });
 
+    setFiltroAtivo(true);
     setListaDePosts(postsFiltrados);
-    console.log(listaDePosts);
+  };
+
+  const limparFiltro = () => {
+    // post - prop original que venho da API
+    //Traz todas as categorias sem filtro (no estado original antes de listaDePosts)
+    setListaDePosts(posts);
+
+    setFiltroAtivo(false);
   };
 
   return (
@@ -75,7 +83,11 @@ export default function Home({ posts, categorias }) {
           })}
 
           {/*se filtro true mostre o botão */}
-          {filtroAtivo && <button className="limpar">Limpar</button>}
+          {filtroAtivo && (
+            <button onClick={limparFiltro} className="limpar">
+              Limpar
+            </button>
+          )}
         </StyledCategorias>
 
         <ListaPost posts={listaDePosts} />
