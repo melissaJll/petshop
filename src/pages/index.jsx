@@ -17,7 +17,7 @@ export async function getStaticProps() {
 
     /*Extraindo as categorias dos posts para um novo array com map*/
     // dados é um array coms os objetos post
-    const categorias = dados.map((umPost) => umPost.categoria);
+    const categorias = dados.map((post) => post.categoria);
     console.log(categorias);
 
     // objeto dentro de objeto - props recebe dados
