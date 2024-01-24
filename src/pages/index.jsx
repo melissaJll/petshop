@@ -36,18 +36,16 @@ export async function getStaticProps() {
   }
 }
 
-// categorias é props do return
+// categorias é props do return e categorias tmb
 export default function Home({ posts, categorias }) {
   const [listaDePosts, setListaDePosts] = useState(posts);
-
-  const [categoria, setCategoria] = useState([]);
 
   const filtrar = (event) => {
     const categoriaEscolhida = event.currentTarget.innerText;
 
-    const postsFiltrados = listaDePosts.filter((post) => {
-      console.log(post.categoria);
-      return post.categoria === categoriaEscolhida;
+    // props home{posts}
+    const postsFiltrados = posts.filter((post) => {
+      return post.categoria === categoriaEscolhida || post.categoria === null;
     });
 
     setListaDePosts(postsFiltrados);
@@ -107,5 +105,12 @@ const StyledCategorias = styled.div`
     margin: 1.3rem auto;
     font-weight: bold;
     cursor: pointer;
+    /* text-transform: capitalize; */
+
+    &:hover,
+    &:focus {
+      background-color: var(--cor-secundaria-fundo-hover);
+      cursor: pointer;
+    }
   }
 `;
