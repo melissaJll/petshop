@@ -38,8 +38,21 @@ export async function getStaticProps() {
 
 // categorias é props do return
 export default function Home({ posts, categorias }) {
-  // console.log(categorias); teste de comunicação
   const [listaDePosts, setListaDePosts] = useState(posts);
+
+  const [categoria, setCategoria] = useState([]);
+
+  const postsFiltrados = listaDePosts.filter((post) => {
+    console.log(post.categoria);
+    return post.categoria === categoria;
+  });
+
+  const aplicarFiltro = (event) => {
+    const categoriaEscolhida = event.currentTarget.innerText;
+    setCategoria(categoriaEscolhida);
+    setListaDePosts(postsFiltrados);
+    console.log(listaDePosts);
+  };
 
   return (
     <>
@@ -55,12 +68,16 @@ export default function Home({ posts, categorias }) {
       <StyledHome>
         <h2>Pet noticias</h2>
 
-        <div>
+        <StyledCategorias>
           {/* Indice é um dos parametros do map */}
           {categorias.map((categoria, indice) => {
-            return <button key={indice}>{categoria}</button>;
+            return (
+              <button onClick={aplicarFiltro} key={indice}>
+                {categoria}
+              </button>
+            );
           })}
-        </div>
+        </StyledCategorias>
 
         <ListaPost posts={listaDePosts} />
       </StyledHome>
@@ -71,5 +88,24 @@ export default function Home({ posts, categorias }) {
 const StyledHome = styled.section`
   h2::before {
     content: "📰 ";
+  }
+`;
+
+const StyledCategorias = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  width: 90%;
+  /* background-color: aliceblue; */
+
+  button {
+    background-color: #5f5aa8;
+    border: none;
+    color: aliceblue;
+    padding: 0.8rem;
+    border-radius: 1.3rem;
+    margin: 1.3rem auto;
+    font-weight: bold;
+    cursor: pointer;
   }
 `;
