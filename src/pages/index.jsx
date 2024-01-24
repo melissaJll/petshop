@@ -42,14 +42,14 @@ export default function Home({ posts, categorias }) {
 
   const [categoria, setCategoria] = useState([]);
 
-  const postsFiltrados = listaDePosts.filter((post) => {
-    console.log(post.categoria);
-    return post.categoria === categoria;
-  });
-
-  const aplicarFiltro = (event) => {
+  const filtrar = (event) => {
     const categoriaEscolhida = event.currentTarget.innerText;
-    setCategoria(categoriaEscolhida);
+
+    const postsFiltrados = listaDePosts.filter((post) => {
+      console.log(post.categoria);
+      return post.categoria === categoriaEscolhida;
+    });
+
     setListaDePosts(postsFiltrados);
     console.log(listaDePosts);
   };
@@ -72,7 +72,7 @@ export default function Home({ posts, categorias }) {
           {/* Indice é um dos parametros do map */}
           {categorias.map((categoria, indice) => {
             return (
-              <button onClick={aplicarFiltro} key={indice}>
+              <button onClick={filtrar} key={indice}>
                 {categoria}
               </button>
             );
