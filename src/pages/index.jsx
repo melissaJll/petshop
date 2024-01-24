@@ -36,6 +36,7 @@ export async function getStaticProps() {
   }
 }
 
+// categorias é props do return
 export default function Home({ posts, categorias }) {
   // console.log(categorias); teste de comunicação
   const [listaDePosts, setListaDePosts] = useState(posts);
