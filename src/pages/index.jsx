@@ -38,6 +38,7 @@ export async function getStaticProps() {
 
 export default function Home({ posts, categorias }) {
   const [listaDePosts, setListaDePosts] = useState(posts);
+  const [filtroAtivo, setFiltroAtivo] = useState(false);
 
   const filtrar = (event) => {
     const categoriaEscolhida = event.currentTarget.textContent;
@@ -73,7 +74,8 @@ export default function Home({ posts, categorias }) {
             );
           })}
 
-          <button className="limpar">Limpar</button>
+          {/*se filtro true mostre o botão */}
+          {filtroAtivo && <button className="limpar">Limpar</button>}
         </StyledCategorias>
 
         <ListaPost posts={listaDePosts} />
