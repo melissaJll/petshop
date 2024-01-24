@@ -62,6 +62,13 @@
       "subtitulo": "O melhor gato de todos",
       "descricao": "A dieta deve contar com a ingestão de ração",
       "categoria": "bem-estar"
+    },
+    {
+      "id": 10,
+      "titulo": "Aluno Reprovado",
+      "subtitulo": "O melhor gato de todos",
+      "descricao": "A dieta deve contar com a ingestão de ração",
+      "categoria": "reprovado"
     }
   ]
 }
