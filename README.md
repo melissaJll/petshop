@@ -1,5 +1,13 @@
 # PetShop: projeto Next.js
 
+## Branch 14-usando-rotas-dinamicas
+
+### Recursos necessários
+
+- Pages/Rotas **dinâmicas** utilizando subpasta(post) e arquivo nomeado com **colchetes** indicando o nome do parâmetro. No caso foi criado o `[id].jsx`
+- `getStaticProps`: Necessario para carregar os dados da API de acordo com o parametro (usando a prop `{param}`) e gerar o HTML via SSR.
+- `getStaticPaths`
+
 ## Branch 13-consumindo-dados-usando-modo-Next
 
 ### Documentação oficial sobre SSR:
