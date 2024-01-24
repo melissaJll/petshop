@@ -42,7 +42,7 @@ export default function Home({ posts, categorias }) {
 
   const [categoria, setCategoria] = useState([]);
 
-  const postsFiltrados = listaDePosts.filter((post) => {
+  const postsFiltrados = posts.filter((post) => {
     console.log(post.categoria);
     return post.categoria === categoria;
   });
