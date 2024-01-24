@@ -20,12 +20,16 @@ export async function getStaticProps() {
     const categorias = dados.map((post) => post.categoria);
     console.log(categorias);
 
+    /* gerando um array de categorias sem repetição */
+    const categoriasUnicas = [...new Set(categorias)];
+    console.log(categoriasUnicas);
+
     // objeto dentro de objeto - props recebe dados
     //Após o processamento (desde de que nao haja erros ), a getStaticProps retorna um objeto com uma propriedade chamada "props"
     return {
       props: {
         posts: dados,
-        categorias: [],
+        categorias: categoriasUnicas,
       },
     };
   } catch (error) {
