@@ -72,6 +72,8 @@ export default function Home({ posts, categorias }) {
               </button>
             );
           })}
+
+          <button className="limpar">Limpar</button>
         </StyledCategorias>
 
         <ListaPost posts={listaDePosts} />
@@ -108,6 +110,17 @@ const StyledCategorias = styled.div`
     &:focus {
       background-color: var(--cor-secundaria-fundo-hover);
       cursor: pointer;
+    }
+  }
+
+  .limpar {
+    border: #5f5aa8 solid 2px;
+    background-color: #f8f6fa;
+    color: #5f5aa8;
+    &:hover,
+    &:focus {
+      background-color: #5f5aa8;
+      color: #f8f6fa;
     }
   }
 `;
