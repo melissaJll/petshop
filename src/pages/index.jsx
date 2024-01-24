@@ -56,8 +56,9 @@ export default function Home({ posts, categorias }) {
         <h2>Pet noticias</h2>
 
         <div>
-          {categorias.map((categoria) => {
-            return <button>{categoria}</button>;
+          {/* Indice é um dos parametros do map */}
+          {categorias.map((categoria, indice) => {
+            return <button key={indice}>{categoria}</button>;
           })}
         </div>
 
