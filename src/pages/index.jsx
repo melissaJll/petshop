@@ -41,7 +41,8 @@ export default function Home({ posts, categorias }) {
   const [listaDePosts, setListaDePosts] = useState(posts);
 
   const filtrar = (event) => {
-    const categoriaEscolhida = event.currentTarget.innerText;
+    // captura o texto do html sem css
+    const categoriaEscolhida = event.currentTarget.textContent;
 
     // props home{posts}
     const postsFiltrados = posts.filter((post) => {
@@ -105,7 +106,7 @@ const StyledCategorias = styled.div`
     margin: 1.3rem auto;
     font-weight: bold;
     cursor: pointer;
-    /* text-transform: capitalize; */
+    text-transform: capitalize;
 
     &:hover,
     &:focus {
