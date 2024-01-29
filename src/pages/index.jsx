@@ -2,8 +2,8 @@ import Head from "next/head";
 import styled from "styled-components";
 import ListaPost from "@/components/ListaPost";
 import { useState } from "react";
-import Link from "next/link";
 import serverApi from "./api/server";
+import ListaCategorias from "@/components/ListaCategorias";
 
 export async function getStaticProps() {
   try {
@@ -76,26 +76,13 @@ export default function Home({ posts, categorias }) {
       <StyledHome>
         <h2>Pet noticias</h2>
 
-        <StyledCategorias>
-          {categorias.map((categoria, indice) => {
-            return (
-              <button
-                className={categoriaAtiva == categoria ? "ativo" : ""}
-                onClick={filtrar}
-                key={indice}
-              >
-                {categoria}
-              </button>
-            );
-          })}
-
-          {/*se filtro true mostre o botão */}
-          {filtroAtivo && (
-            <button onClick={limparFiltro} className="limpar">
-              Limpar
-            </button>
-          )}
-        </StyledCategorias>
+        <ListaCategorias
+          todasCategorias={categorias}
+          limparfiltro={limparFiltro}
+          filtrar={filtrar}
+          filtroativo={filtroAtivo}
+          categoriaativa={categoriaAtiva}
+        />
 
         <ListaPost posts={listaDePosts} />
       </StyledHome>
