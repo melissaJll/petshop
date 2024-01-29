@@ -1,6 +1,10 @@
 # PetShop: projeto Next.js
 
-## Branch
+## Branch 19
+
+https://petshop-melissa-default-rtdb.firebaseio.com/
+
+https://tableconvert.com/json-to-firebase
 
 ## Branch 14-usando-rotas-dinamicas
 
