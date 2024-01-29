@@ -16,11 +16,11 @@ export async function getStaticProps() {
 
     /* Extraindo as categorias dos posts para um novo array */
     const categorias = dados.map((post) => post.categoria);
-    console.log(categorias);
+    // console.log(categorias);
 
     /* Gerando um array de categorias ÚNICAS */
     const categoriasUnicas = [...new Set(categorias)];
-    console.log(categoriasUnicas);
+    // console.log(categoriasUnicas);
 
     return {
       props: {
@@ -39,6 +39,7 @@ export async function getStaticProps() {
 export default function Home({ posts, categorias }) {
   const [listaDePosts, setListaDePosts] = useState(posts);
   const [filtroAtivo, setFiltroAtivo] = useState(false);
+  const [categoriaAtiva, setCategoriaAtiva] = useState(""); //texto vazio sem seleção
 
   const filtrar = (event) => {
     const categoriaEscolhida = event.currentTarget.textContent;
@@ -49,14 +50,16 @@ export default function Home({ posts, categorias }) {
 
     setFiltroAtivo(true);
     setListaDePosts(postsFiltrados);
+    setCategoriaAtiva(categoriaEscolhida);
   };
 
   const limparFiltro = () => {
     // post - prop original que venho da API
     //Traz todas as categorias sem filtro (no estado original antes de listaDePosts)
     setListaDePosts(posts);
-
     setFiltroAtivo(false);
+    // Ao limpar o filtro, definimos a categoria ao estado inicial "" vazio
+    setCategoriaAtiva("");
   };
 
   return (
@@ -76,7 +79,11 @@ export default function Home({ posts, categorias }) {
         <StyledCategorias>
           {categorias.map((categoria, indice) => {
             return (
-              <button onClick={filtrar} key={indice}>
+              <button
+                className={categoriaAtiva == categoria ? "ativo" : ""}
+                onClick={filtrar}
+                key={indice}
+              >
                 {categoria}
               </button>
             );
@@ -124,6 +131,10 @@ const StyledCategorias = styled.div`
     &:focus {
       background-color: var(--cor-secundaria-fundo-hover);
       cursor: pointer;
+    }
+
+    &.ativo {
+      background-color: var(--cor-secundaria-fundo-hover);
     }
   }
 
