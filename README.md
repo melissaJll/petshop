@@ -5,6 +5,9 @@
 https://petshop-melissa-default-rtdb.firebaseio.com/
 
 https://tableconvert.com/json-to-firebase
+de apiserver para posts
+
+Depois importar posts.json com nome posts na URL do firebas
 
 ## Branch 14-usando-rotas-dinamicas
 
