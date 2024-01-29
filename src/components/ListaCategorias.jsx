@@ -3,8 +3,8 @@ export default function ListaCategorias({
   todasCategorias,
   limparfiltro,
   filtrar,
-  filtroativo,
-  categoriaativa,
+  filtroAtivo,
+  categoriaAtiva,
 }) {
   return (
     <>
@@ -12,7 +12,7 @@ export default function ListaCategorias({
         {todasCategorias.map((categoria, indice) => {
           return (
             <button
-              className={categoriaativa == categoria ? "ativo" : ""}
+              className={categoriaAtiva == categoria ? "ativo" : ""}
               onClick={filtrar}
               key={indice}
             >
@@ -22,7 +22,7 @@ export default function ListaCategorias({
         })}
 
         {/*se filtro true mostre o botão */}
-        {filtroativo && (
+        {filtroAtivo && (
           <button onClick={limparfiltro} className="limpar">
             Limpar
           </button>

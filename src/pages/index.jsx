@@ -80,8 +80,8 @@ export default function Home({ posts, categorias }) {
           todasCategorias={categorias}
           limparfiltro={limparFiltro}
           filtrar={filtrar}
-          filtroativo={filtroAtivo}
-          categoriaativa={categoriaAtiva}
+          filtroAtivo={filtroAtivo}
+          categoriaAtiva={categoriaAtiva}
         />
 
         <ListaPost posts={listaDePosts} />
