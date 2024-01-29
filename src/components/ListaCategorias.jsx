@@ -1,8 +1,8 @@
 import styled from "styled-components";
 export default function ListaCategorias({
   todasCategorias,
-  limparfiltro,
-  filtrar,
+  onLimparfiltro,
+  onFiltrar,
   filtroAtivo,
   categoriaAtiva,
 }) {
@@ -13,7 +13,7 @@ export default function ListaCategorias({
           return (
             <button
               className={categoriaAtiva == categoria ? "ativo" : ""}
-              onClick={filtrar}
+              onClick={onFiltrar}
               key={indice}
             >
               {categoria}
@@ -23,7 +23,7 @@ export default function ListaCategorias({
 
         {/*se filtro true mostre o botão */}
         {filtroAtivo && (
-          <button onClick={limparfiltro} className="limpar">
+          <button onClick={onLimparfiltro} className="limpar">
             Limpar
           </button>
         )}
