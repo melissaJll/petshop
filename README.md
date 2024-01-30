@@ -9,6 +9,14 @@ de apiserver para posts
 
 Depois importar posts.json com nome posts na URL do firebas
 
+### Firebase
+
+Firebase é uma plataforma de serviços web (web services) com uma série de funcionalidades de Back-end úteis para aplicações (web, jogos, apps).
+
+No caso do Petshop, criamos um projeto Firebase e nele adicionamos um banxo de dados chamado "Firebase RealTime Database" para utilização como API JSON.
+
+O Realtime Database é um banco de dados `NoSQL`, ou seja, um banco de dados **não-relacional**. É baseado em documentos no formato JSON contendo objetos de dados.
+
 ## Branch 14-usando-rotas-dinamicas
 
 ### Recursos necessários
