@@ -23,7 +23,6 @@ export async function getStaticProps() {
         id: post,
       };
     });
-    console.log(arrayDePosts);
 
     /* Extraindo as categorias dos posts para um novo array */
     // arrayDePosts agora é o array de posts - dados é um objeto de objetos
