@@ -1,8 +1,13 @@
 import Container from "@/components/ui/Container";
 import Head from "next/head";
 import styled from "styled-components";
+import { useForm } from "react-hook-form";
 
 export default function Contato() {
+  const { register, handleSubmit } = useForm();
+  const enviarContato = () => {
+    console.log("Enviando dados");
+  };
   return (
     <>
       <Head>
