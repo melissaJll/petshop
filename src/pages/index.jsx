@@ -9,14 +9,25 @@ export async function getStaticProps() {
   try {
     const resposta = await fetch(`${serverApi}/posts.json`);
     const dados = await resposta.json();
-    console.log(dados);
 
     if (!resposta.ok) {
       throw new Error(`Erro: ${resposta.status} - ${resposta.statusText}`);
     }
 
+    // Colocando os dados dos objetos dentro de um array
+    // spred (...) traz categoria, titulo, sub... junto com o Id, que agora é definido com o hash(object.keys)
+    // console.log(post): post são os hashs por isso atribuimos ele ao nome Id:
+    const arrayDePosts = Object.keys(dados).map((post) => {
+      return {
+        ...dados[post],
+        id: post,
+      };
+    });
+    console.log(arrayDePosts);
+
     /* Extraindo as categorias dos posts para um novo array */
-    const categorias = dados.map((post) => post.categoria);
+    // arrayDePosts agora é o array de posts - dados é um objeto de objetos
+    const categorias = arrayDePosts.map((post) => post.categoria);
     // console.log(categorias);
 
     /* Gerando um array de categorias ÚNICAS */
@@ -25,7 +36,8 @@ export async function getStaticProps() {
 
     return {
       props: {
-        posts: dados,
+        // arrayDePosts agora é o array de posts - dados é um objeto de objetos
+        posts: arrayDePosts,
         categorias: categoriasUnicas,
       },
     };
