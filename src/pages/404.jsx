@@ -13,7 +13,12 @@ export default function Pagina404() {
         <h2>Au Au Au</h2>
         <Container>
           <h3>Ops! Algo deu errado</h3>
-          <Image width={500} height={296} src="/images/404.svg" />
+          <Image
+            width={500}
+            height={296}
+            src="/images/404.svg"
+            alt="pagina nao encontrada"
+          />
         </Container>
       </Styled404>
     </>
