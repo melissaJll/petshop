@@ -2,12 +2,28 @@ import Container from "@/components/ui/Container";
 import Head from "next/head";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
+import serverApi from "./api/server";
 
 export default function Contato() {
   const { register, handleSubmit } = useForm();
-  const enviarContato = (dados) => {
-    console.log(dados);
+
+  const enviarContato = async (dados) => {
+    const { nome, email, mensagem } = dados;
+    const opcoes = {
+      method: "POST",
+      body: JSON.stringify({ nome, email, mensagem }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    };
+    try {
+      await fetch(`${serverApi}/contatos.json`, opcoes);
+      alert("Dados enviados");
+    } catch (error) {
+      console.error("Deu ruim " + error.mensagem);
+    }
   };
+
   return (
     <>
       <Head>
