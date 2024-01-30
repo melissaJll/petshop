@@ -3,9 +3,11 @@ import Head from "next/head";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import serverApi from "./api/server";
+import { useRouter } from "next/router";
 
 export default function Contato() {
   const { register, handleSubmit } = useForm();
+  let router = useRouter();
 
   const enviarContato = async (dados) => {
     const { nome, email, mensagem } = dados;
@@ -19,6 +21,7 @@ export default function Contato() {
     try {
       await fetch(`${serverApi}/contatos.json`, opcoes);
       alert("Dados enviados");
+      router.push("/");
     } catch (error) {
       console.error("Deu ruim " + error.mensagem);
     }
