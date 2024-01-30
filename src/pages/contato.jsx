@@ -5,8 +5,8 @@ import { useForm } from "react-hook-form";
 
 export default function Contato() {
   const { register, handleSubmit } = useForm();
-  const enviarContato = () => {
-    console.log("Enviando dados");
+  const enviarContato = (dados) => {
+    console.log(dados);
   };
   return (
     <>
@@ -17,7 +17,13 @@ export default function Contato() {
       <StyledContato>
         <h2>Fale conosco</h2>
         <Container>
-          <form action="" method="post">
+          <form
+            action=""
+            method="post"
+            onSubmit={handleSubmit((dados) => {
+              enviarContato(dados);
+            })}
+          >
             <div>
               <label htmlFor="nome">Nome: </label>
               <input {...register("nome")} type="text" name="nome" id="nome" />
@@ -63,6 +69,7 @@ const StyledContato = styled.section`
     border-radius: var(--borda-arredondada);
     margin: 1.3rem auto;
     font-weight: bold;
+    cursor: pointer;
   }
   div {
     display: flex;
