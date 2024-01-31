@@ -57,22 +57,28 @@ export default function Contato() {
               />
             </div>
 
-            {/*"?" optional chaining: encadeamento opcional, usado para evitar erros caso uma propriedade possa ser null ou undefined*/}
+            {/*"?" optional chaining: encadeamento opcional, usado para evitar 
+            erros caso uma propriedade possa ser null ou undefined*/}
             {errors.nome?.type == "required" && <p>Você deve digitar o nome</p>}
 
             <div>
               <label htmlFor="email">Email: </label>
               <input
-                {...register("email")}
+                {...register("email", { required: true })}
                 type="email"
                 name="email"
                 id="email"
               />
             </div>
+
+            {errors.email?.type == "required" && (
+              <p>Você deve digitar o email</p>
+            )}
+
             <div>
               <label htmlFor="mensagem">Mensagem: </label>
               <textarea
-                {...register("mensagem")}
+                {...register("mensagem", { required: true, minLength: 20 })}
                 name="mensagem"
                 id="mensagem"
                 cols="30"
@@ -80,6 +86,14 @@ export default function Contato() {
                 maxLength={500}
               ></textarea>
             </div>
+
+            {errors.mensagem?.type == "required" && (
+              <p>Você deve digitar uma mensagem</p>
+            )}
+            {errors.mensagem?.type == "minLength" && (
+              <p>Escreva pelo menos 20 characteres</p>
+            )}
+
             <div>
               <button type="submit"> Enviar mensagem</button>
             </div>
@@ -97,20 +111,22 @@ const StyledContato = styled.section`
     background-color: #663a83;
     border: none;
     color: aliceblue;
-    padding: 0.8rem;
+    padding: 0.9rem;
     border-radius: var(--borda-arredondada);
     margin: 1.3rem auto;
     font-weight: bold;
     cursor: pointer;
   }
-  div {
+  form > div {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: #faf7fc;
     color: #041047;
     font-size: 1.1rem;
+    font-weight: bold;
   }
+
   form {
     width: 95%;
     margin: auto;
@@ -124,7 +140,7 @@ const StyledContato = styled.section`
     box-shadow: 4px 4px 10px 1px rgb(0 0 0 / 10%);
   }
   input {
-    padding: 0.8rem;
+    padding: 0.9rem;
   }
   /* label::before {
     content: "🦴 ";
