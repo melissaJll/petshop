@@ -49,8 +49,17 @@ export default function Contato() {
           >
             <div>
               <label htmlFor="nome">Nome: </label>
-              <input {...register("nome")} type="text" name="nome" id="nome" />
+              <input
+                {...register("nome", { required: true })}
+                type="text"
+                name="nome"
+                id="nome"
+              />
             </div>
+
+            {/*"?" optional chaining: encadeamento opcional, usado para evitar erros caso uma propriedade possa ser null ou undefined*/}
+            {errors.nome?.type == "required" && <p>Você deve digitar o nome</p>}
+
             <div>
               <label htmlFor="email">Email: </label>
               <input
