@@ -86,7 +86,7 @@ export default function Home({ posts, categorias }) {
       </Head>
       {/* Definindo prop  = como o resultado do state setListaDePosts(dados) = listaDePosts */}
       <StyledHome>
-        <h2>Pet noticias</h2>
+        <h2>Pet noticias: {listaDePosts.length}</h2>
 
         <ListaCategorias
           todasCategorias={categorias}
