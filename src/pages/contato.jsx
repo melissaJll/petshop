@@ -125,6 +125,11 @@ const StyledContato = styled.section`
     color: #041047;
     font-size: 1.1rem;
     font-weight: bold;
+
+    /* Paragrafos adjacente as divs */
+    & + p {
+      color: #eb0000;
+    }
   }
 
   form {
